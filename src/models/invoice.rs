@@ -7,7 +7,7 @@ use uuid::Uuid;
 // --- Запросы ---
 
 /// Параметры для создания счета (контракта) на покупку.
-#[derive(Serialize, Debug, Clone)]
+#[derive(Serialize, Debug, Clone, Default)]
 pub struct InvoiceRequestDto {
     /// Почта покупателя.
     pub email: String,

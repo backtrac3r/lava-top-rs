@@ -3,9 +3,10 @@ use serde::{Deserialize, Serialize};
 use url::Url;
 
 // --- Enum Определения ---
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash, Default)]
 #[serde(rename_all = "UPPERCASE")]
 pub enum CurrencyDto {
+    #[default]
     Rub,
     Usd,
     Eur,
