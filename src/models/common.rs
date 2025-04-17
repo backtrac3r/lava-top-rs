@@ -57,10 +57,11 @@ pub enum ContractStatusDto {
     Unknown,
 }
 
-impl ContractStatusDto {
-    pub fn to_snake_case_string(&self) -> Result<String, serde_json::Error> {
-        let json_string = serde_json::to_string(&self)?;
-        Ok(json_string.trim_matches('"').to_string())
+impl std::fmt::Display for ContractStatusDto {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
+        let json_string = serde_json::to_string(&self).unwrap();
+        let s = json_string.trim_matches('"');
+        write!(f, "{s}")
     }
 }
 
