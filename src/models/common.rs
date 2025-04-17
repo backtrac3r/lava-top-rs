@@ -40,6 +40,19 @@ pub enum Periodicity {
     PeriodYear,
 }
 
+impl Periodicity {
+    #[must_use]
+    pub fn from_months(months: u16) -> Self {
+        match months {
+            1 => Self::Monthly,
+            3 => Self::Period90Days,
+            6 => Self::Period180Days,
+            12 => Self::PeriodYear,
+            _ => Self::OneTime,
+        }
+    }
+}
+
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash)]
 #[serde(rename_all = "kebab-case")]
 pub enum ContractStatusDto {
