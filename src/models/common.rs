@@ -44,7 +44,7 @@ pub enum Periodicity {
 #[serde(rename_all = "kebab-case")]
 pub enum ContractStatusDto {
     New,
-    #[serde(rename = "in-progress")]
+    // #[serde(rename = "in-progress")]
     InProgress,
     Completed,
     Failed,
@@ -55,6 +55,13 @@ pub enum ContractStatusDto {
     SubscriptionFailed,
     #[serde(other)]
     Unknown,
+}
+
+impl ContractStatusDto {
+    pub fn to_snake_case_string(&self) -> Result<String, serde_json::Error> {
+        let json_string = serde_json::to_string(&self)?;
+        Ok(json_string.trim_matches('"').to_string())
+    }
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash)]

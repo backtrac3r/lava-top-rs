@@ -33,8 +33,6 @@ pub struct InvoiceRequestDto {
     pub client_utm: Option<ClientUtmDto>,
 }
 
-// --- Ответы ---
-
 /// Ответ при создании счета (v1 и v2). Содержит ссылку на оплату.
 #[derive(Deserialize, Debug, Clone)]
 pub struct InvoicePaymentParamsResponse {
