@@ -38,7 +38,6 @@ pub struct InvoiceRequestDto {
 pub struct InvoicePaymentParamsResponse {
     /// Идентификатор созданного контракта.
     pub id: Uuid,
-    /// Статус контракта (использует ContractStatusDto).
     pub status: ContractStatusDto,
     /// Сумма к оплате.
     #[serde(rename = "amountTotal")]
