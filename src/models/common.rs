@@ -85,8 +85,6 @@ pub enum InvoiceStatus {
     InProgress,
     Completed,
     Failed,
-    #[serde(other)]
-    Unknown,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash)]
@@ -144,8 +142,6 @@ pub enum PostType {
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum Status {
     Published,
-    #[serde(other)]
-    Unknown,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash)]
@@ -155,8 +151,6 @@ pub enum ModerationStatus {
     Rejected,
     Approved,
     Blocked,
-    #[serde(other)]
-    Unknown,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash)]
@@ -230,7 +224,7 @@ pub struct BuyerDto {
 
 pub(crate) mod opt_chrono_datetime_as_iso8601 {
     use chrono::{DateTime, Utc};
-    use serde::{Serialize, Serializer};
+    use serde::Serializer;
 
     pub fn serialize<S>(date: &Option<DateTime<Utc>>, serializer: S) -> Result<S::Ok, S::Error>
     where
