@@ -102,6 +102,14 @@ pub enum SubscriptionStatus {
     Failed,
 }
 
+impl std::fmt::Display for SubscriptionStatus {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
+        let json_string = serde_json::to_string(&self).unwrap();
+        let s = json_string.trim_matches('"');
+        write!(f, "{s}")
+    }
+}
+
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum FeedItemType {
