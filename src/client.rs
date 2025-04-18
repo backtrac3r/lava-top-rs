@@ -209,7 +209,7 @@ impl LavaTopClient {
     /// Получение контракта по идентификатору.
     pub async fn get_invoice_by_id(
         &self,
-        invoice_id: Uuid,
+        invoice_id: &Uuid,
     ) -> Result<InvoiceResponseV2, LavaTopError> {
         let endpoint = format!("/api/v1/invoices/{}", invoice_id);
         let response = self
