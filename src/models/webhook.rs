@@ -12,8 +12,6 @@ pub enum WebhookEventType {
     SubscriptionRecurringPaymentSuccess,
     SubscriptionRecurringPaymentFailed,
     SubscriptionCancelled,
-    #[serde(other)]
-    Unknown,
 }
 
 /// Информация о продукте в теле вебхука.

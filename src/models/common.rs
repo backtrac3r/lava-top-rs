@@ -66,8 +66,6 @@ pub enum ContractStatusDto {
     SubscriptionExpired,
     SubscriptionCancelled,
     SubscriptionFailed,
-    #[serde(other)]
-    Unknown,
 }
 
 impl std::fmt::Display for ContractStatusDto {
